@@ -43,7 +43,9 @@ app.use("/api/messages", messageRouter)
 await connectdb();
 
 app.use("/api/status", (req,res)=> res.send("server is live"));
+if(process.env.NODE_ENV !=="production"){
 server.listen(process.env.PORT, ()=>{
     console.log(`server started running on ${process.env.PORT}`);
-    
 })
+}
+export default server
